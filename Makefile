@@ -19,6 +19,6 @@ publish: dist
 	git rebase main
 	rm -rf docs
 	cp -r dist/ docs/
-	git commit -am "Publish on $(date)"
+	git commit -am "Publish on $(date)" || echo No Changes To Publish
 	git push origin publish
 	git checkout main
