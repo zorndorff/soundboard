@@ -36,7 +36,7 @@ const playSound = ( sound: {
 <style scoped>
 .container{
   display: block;
-  width: auto;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto 0 auto;
 }
@@ -44,12 +44,16 @@ const playSound = ( sound: {
 ul{
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
 }
 
 li {
   justify-content: space-between;
-  flex-direction: row;
   flex-grow: 1;
+  margin: 10px 0 10px;
 }
 
 button {
