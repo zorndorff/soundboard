@@ -16,7 +16,7 @@ start: node_modules
 	npm run dev
 publish: dist
 	git checkout publish
-	git rebase main
+	git merge --ff-only main
 	rm -rf docs
 	cp -r dist/ docs/
 	git commit -am "Publish on $(date)" || echo No Changes To Publish
