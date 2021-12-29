@@ -19,6 +19,6 @@ publish:
 	git checkout publish
 	rm -rf docs
 	cp -r dist/ docs/
-	git commit -am "Publish on $(date)" || echo No Changes To Publish
+	git add docs && git commit -am "Publish on $(date)" || echo No Changes To Publish
 	git push origin publish
 	git checkout main
