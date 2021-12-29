@@ -14,7 +14,8 @@ test: dist
 
 start: node_modules
 	npm run dev
-publish: dist
+publish:
+	npm run build -- --base=/soundboard/
 	git checkout publish
 	rm -rf docs
 	cp -r dist/ docs/
