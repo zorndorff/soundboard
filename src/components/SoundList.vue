@@ -52,15 +52,16 @@ ul{
 li {
   justify-content: space-between;
   flex-grow: 1;
-  margin: 10px 0 10px;
+  padding: 10px;
 }
 
 button {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   color: #fff;
   background-color: #42b983;
 }
+
 a {
   color: #42b983;
 }
