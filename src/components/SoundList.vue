@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import sounds  from '../assets/sounds.json';
 
 defineProps<{ msg: string }>()
@@ -7,6 +6,7 @@ defineProps<{ msg: string }>()
 const soundElements = sounds.map((sound) => {
   return {
     ...sound,
+    playing: false,
     element: new Audio(sound.url),
   };
 })
@@ -14,8 +14,16 @@ const soundElements = sounds.map((sound) => {
 const playSound = ( sound: {
   url: string,
   title: string,
+  playing: boolean,
   element: HTMLAudioElement,
 } ) => {
+
+  sound.playing = true;
+
+  sound.element.addEventListener('ended', () => {
+    sound.playing = false;
+  });
+
   sound.element.play();
 }
 
@@ -26,7 +34,7 @@ const playSound = ( sound: {
   <div class="container">
     <ul class="sound-list">
       <li v-for="sound in soundElements" :key="sound.url">
-        <button @click="playSound(sound)">{{sound.title}}</button>
+        <button @click="playSound(sound)" :class="{ playing: sound.playing }">{{sound.title}}</button>
       </li>
     </ul>
   </div>
