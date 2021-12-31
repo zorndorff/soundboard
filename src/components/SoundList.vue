@@ -16,7 +16,6 @@ const playSound = ( sound: {
   title: string,
   element: HTMLAudioElement,
 } ) => {
-
   sound.element.play();
 }
 
@@ -26,7 +25,7 @@ const playSound = ( sound: {
   <h1>Ben's Sound Board</h1>
   <div class="container">
     <ul class="sound-list">
-      <li v-for="sound in soundElements">
+      <li v-for="sound in soundElements" :key="sound.url">
         <button @click="playSound(sound)">{{sound.title}}</button>
       </li>
     </ul>
@@ -57,8 +56,8 @@ li {
 }
 
 button {
-  width: 200px;
-  height: 200px;
+  width: 50px;
+  height: 50px;
   color: #fff;
   background-color: #42b983;
 }
